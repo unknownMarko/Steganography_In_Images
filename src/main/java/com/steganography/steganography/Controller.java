@@ -5,8 +5,18 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
+import java.io.File;
 
 public class Controller {
+    //Getting stage from Steganography.java
+    private Stage stage;
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
 
     @FXML
     private Button btn_get_text_from_image;
@@ -53,7 +63,9 @@ public class Controller {
 
     @FXML
     void handleLoadImage(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
 
+        File file = fileChooser.showOpenDialog(stage);
     }
 
     @FXML

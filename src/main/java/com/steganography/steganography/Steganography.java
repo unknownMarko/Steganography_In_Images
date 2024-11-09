@@ -24,6 +24,9 @@ public class Steganography extends Application {
             System.err.println("Could not find icon!");
         }
 
+        Controller controller = fxmlLoader.getController();
+        controller.setStage(stage);
+
         stage.centerOnScreen();
         stage.show();
     }
