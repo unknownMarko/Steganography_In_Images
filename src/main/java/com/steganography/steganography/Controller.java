@@ -1,5 +1,6 @@
 package com.steganography.steganography;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -39,5 +40,31 @@ public class Controller {
 
     @FXML
     private TextArea textarea_text_from_image;
+
+    @FXML
+    void handleGetTextFromImage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleHideTextIntoImage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleLoadImage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleShowImageOriginal(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleShowImageWithText(ActionEvent event) {
+
+    }
+
 
 }

@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="background_pane" stylesheets="@steganography_frontend.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="background_pane" stylesheets="@steganography_frontend.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.steganography.steganography.Controller">
    <children>
       <Text fill="#ddd92a" layoutX="117.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt; Steganography &gt;">
          <font>
@@ -19,7 +19,7 @@
             <Font name="Roboto Mono Regular" size="19.0" />
          </font>
       </Text>
-      <Button fx:id="btn_load_image" layoutX="20.0" layoutY="87.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: #4F4A58;" text="Browse Files" textFill="#eae151">
+      <Button fx:id="btn_load_image" layoutX="20.0" layoutY="87.0" mnemonicParsing="false" onAction="#handleLoadImage" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: #4F4A58;" text="Browse Files" textFill="#eae151">
          <font>
             <Font size="16.0" />
          </font>
@@ -74,7 +74,7 @@
             <Font name="Roboto Mono Regular" size="16.0" />
          </font>
       </Text>
-      <Button fx:id="btn_preview_loaded_image" layoutX="20.0" layoutY="348.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: #4F4A58;" text="Show Image" textFill="#eae151">
+      <Button fx:id="btn_preview_loaded_image" layoutX="20.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleShowImageOriginal" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: #4F4A58;" text="Show Image" textFill="#eae151">
          <font>
             <Font size="16.0" />
          </font>
@@ -84,7 +84,7 @@
             <Font name="Roboto Mono Regular" size="16.0" />
          </font>
       </Text>
-      <Button fx:id="btn_preview_image_with_input" layoutX="272.0" layoutY="348.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: #4F4A58;" text="Show Image" textFill="#eae151">
+      <Button fx:id="btn_preview_image_with_input" layoutX="272.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleShowImageWithText" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: #4F4A58;" text="Show Image" textFill="#eae151">
          <font>
             <Font size="16.0" />
          </font>
@@ -94,7 +94,7 @@
             <Font name="Roboto Mono Regular" size="16.0" />
          </font>
       </Text>
-      <Button fx:id="btn_get_text_from_image" layoutX="20.0" layoutY="418.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: #4F4A58;" text="Get Text" textFill="#eae151">
+      <Button fx:id="btn_get_text_from_image" layoutX="20.0" layoutY="418.0" mnemonicParsing="false" onAction="#handleGetTextFromImage" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: #4F4A58;" text="Get Text" textFill="#eae151">
          <font>
             <Font size="16.0" />
          </font>
@@ -104,7 +104,7 @@
             <Font name="Roboto Mono Regular" size="16.0" />
          </font>
       </Text>
-      <Button fx:id="btn_hide_text_to_image" layoutX="269.0" layoutY="418.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: #4F4A58;" text="Hide Text" textFill="#eae151">
+      <Button fx:id="btn_hide_text_to_image" layoutX="269.0" layoutY="418.0" mnemonicParsing="false" onAction="#handleHideTextIntoImage" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: #4F4A58;" text="Hide Text" textFill="#eae151">
          <font>
             <Font size="16.0" />
          </font>
