@@ -1,16 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.steganography.steganography.Controller">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="background_pane" stylesheets="@steganography_frontend.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fill="#ddd92a" layoutX="117.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt; Steganography &gt;">
+         <font>
+            <Font name="Roboto Mono Medium" size="26.0" />
+         </font>
+      </Text>
+      <Text fill="#eae151" layoutX="63.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Load Image">
+         <font>
+            <Font name="Roboto Mono Regular" size="19.0" />
+         </font>
+      </Text>
+      <Button fx:id="btn_load_image" layoutX="20.0" layoutY="87.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: #4F4A58;" text="Browse Files" textFill="#eae151">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Text fill="#eae151" layoutX="59.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image Data">
+         <font>
+            <Font name="Roboto Mono Regular" size="19.0" />
+         </font>
+      </Text>
+      <Text fill="#868030" layoutX="26.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RESOLUTION" underline="true">
+         <font>
+            <Font name="Roboto Mono Regular" size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="text_resolution" fill="#868030" layoutX="129.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXXX:XXXX">
+         <font>
+            <Font name="Roboto Mono Regular" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#868030" layoutX="26.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FORMAT" underline="true">
+         <font>
+            <Font name="Roboto Mono Regular" size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="text_format" fill="#868030" layoutX="129.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXXX:XXXX">
+         <font>
+            <Font name="Roboto Mono Regular" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#868030" layoutX="26.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SIZE" underline="true">
+         <font>
+            <Font name="Roboto Mono Regular" size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="text_size" fill="#868030" layoutX="129.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXXX:XXXX">
+         <font>
+            <Font name="Roboto Mono Regular" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#868030" layoutX="26.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAX CHARS" underline="true">
+         <font>
+            <Font name="Roboto Mono Regular" size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="text_max_chars" fill="#868030" layoutX="129.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXXX:XXXX">
+         <font>
+            <Font name="Roboto Mono Regular" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#eae151" layoutX="24.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preview Loaded Image">
+         <font>
+            <Font name="Roboto Mono Regular" size="16.0" />
+         </font>
+      </Text>
+      <Button fx:id="btn_preview_loaded_image" layoutX="20.0" layoutY="348.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: #4F4A58;" text="Show Image" textFill="#eae151">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Text fill="#eae151" layoutX="261.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preview Image with Text">
+         <font>
+            <Font name="Roboto Mono Regular" size="16.0" />
+         </font>
+      </Text>
+      <Button fx:id="btn_preview_image_with_input" layoutX="272.0" layoutY="348.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: #4F4A58;" text="Show Image" textFill="#eae151">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Text fill="#eae151" layoutX="29.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get Text From Image">
+         <font>
+            <Font name="Roboto Mono Regular" size="16.0" />
+         </font>
+      </Text>
+      <Button fx:id="btn_get_text_from_image" layoutX="20.0" layoutY="418.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: #4F4A58;" text="Get Text" textFill="#eae151">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Text fill="#eae151" layoutX="275.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hide Text Into Image">
+         <font>
+            <Font name="Roboto Mono Regular" size="16.0" />
+         </font>
+      </Text>
+      <Button fx:id="btn_hide_text_to_image" layoutX="269.0" layoutY="418.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: #4F4A58;" text="Hide Text" textFill="#eae151">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Text fill="#eae151" layoutX="312.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Input Text">
+         <font>
+            <Font name="Roboto Mono Regular" size="19.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="textarea_input_text" layoutX="272.0" layoutY="87.0" prefHeight="80.0" prefWidth="200.0" promptText="Write your text here.." styleClass="textarea" stylesheets="@steganography_frontend.css">
+         <font>
+            <Font name="Roboto Mono Regular" size="13.0" />
+         </font>
+      </TextArea>
+      <Text fill="#eae151" layoutX="286.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text from Image">
+         <font>
+            <Font name="Roboto Mono Regular" size="19.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="textarea_text_from_image" editable="false" layoutX="272.0" layoutY="213.0" prefHeight="80.0" prefWidth="200.0" styleClass="textarea" stylesheets="@steganography_frontend.css">
+         <font>
+            <Font name="Roboto Mono Regular" size="13.0" />
+         </font>
+      </TextArea>
+      <Text fill="#545452" layoutX="73.0" layoutY="486.0" strokeType="OUTSIDE" strokeWidth="0.0" text="https://github.com/unknownMarko">
+         <font>
+            <Font name="Roboto Mono Regular" size="19.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
