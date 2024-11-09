@@ -12,7 +12,7 @@ public class Steganography extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Steganography.class.getResource("steganography_frontend.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 700, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 500, 500);
         stage.setTitle("Steganography");
         stage.setResizable(false);
         stage.setScene(scene);
