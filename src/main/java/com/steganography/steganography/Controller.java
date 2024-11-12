@@ -82,9 +82,9 @@ public class Controller {
     @FXML
     void handleGetTextFromImage(ActionEvent event) {
         textarea_text_from_image.setText("");
-        char[] output = logic.imageToText(imageColorsBin, maxChars);
+        char[] output = logic.imageToText(imageColorsBin);
         for (int i = 0; i < output.length; i++) {
-            if (output[i] > 31 && output[i] < 127) {
+            if ((output[i] > 31 && output[i] < 127) || (output[i] >= 160 && output[i] <= 255)) {
                 textarea_text_from_image.setText(textarea_text_from_image.getText()+output[i]);
             }
         }
@@ -179,11 +179,13 @@ public class Controller {
 
     @FXML
     void handleShowImageWithText(ActionEvent event) {
-        logic.saveImage(imageTextBin, inputImageWidth, inputImageHeight, "png", loadImageFile.getName(), true);
+        textBin = logic.inputToBin(textarea_input_text.getText());
+        imageTextBin = logic.writeTextIntoImageBin(imageColorsBin, textBin, Integer.parseInt(text_max_chars.getText()));
+        File file = logic.saveImage(imageTextBin, inputImageWidth, inputImageHeight, "png", loadImageFile.getName(), true);
         if (Desktop.isDesktopSupported()) {
             Desktop desktop = Desktop.getDesktop();
             try {
-                desktop.open(loadImageFile);
+                desktop.open(file);
             } catch (IOException e) {
                 System.err.println("Cannot open OS Photo Viewer..");
             }

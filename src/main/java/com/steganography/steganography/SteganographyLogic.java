@@ -7,6 +7,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLOutput;
 
 public class SteganographyLogic {
     public String[] inputToBin(String inputText) {
@@ -24,7 +25,7 @@ public class SteganographyLogic {
         return inputBin;
     }
 
-    public char[] imageToText(String[][] imageColorsBin, int max_chars) {
+    public char[] imageToText(String[][] imageColorsBin) {
         String[] output = new String[imageColorsBin.length*3];
         for (int i = 0; i < imageColorsBin.length; i++) {
             output[i*3] = String.valueOf(imageColorsBin[i][0].charAt(7));
@@ -53,6 +54,7 @@ public class SteganographyLogic {
                 }
             }
         }
+
         return textInFileArrayChar;
     }
 
@@ -117,16 +119,12 @@ public class SteganographyLogic {
             }
         }
 
-        for (int i = 0; i < imageColorsBin.length; i++) {
-//            System.out.println("Pixel " + i + " - Red: " + imageColorsBin[i][0] + ", Green: " + imageColorsBin[i][1] + ", Blue: " + imageColorsBin[i][2]);
-        }
-
         return imageColorsBin;
     }
 
     private Stage stage;
 
-    public void saveImage(String[][] imageColorsBin, int width, int height, String format, String fileName, boolean preview){
+    public File saveImage(String[][] imageColorsBin, int width, int height, String format, String fileName, boolean preview){
 
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
@@ -142,8 +140,11 @@ public class SteganographyLogic {
             }
         }
 
+        File file = null;
+
         if (!preview) {
             //TODO Figure out if merge with Controller.java is possible..
+            System.out.println("Saving image with hidden text..");
             FileChooser fileChooser = new FileChooser();
 
             FileChooser.ExtensionFilter pngFilter = new FileChooser.ExtensionFilter(".png", "*.png");
@@ -155,23 +156,26 @@ public class SteganographyLogic {
             fileChooser.setInitialFileName(fileName);
 
             //TODO Add Try/Catch
-            File file = fileChooser.showSaveDialog(stage);
+            file = fileChooser.showSaveDialog(stage);
 
             try {
                 ImageIO.write(image, format, file);
+                return file;
             } catch (IOException e) {
                 System.err.println("Error while saving file..");
             }
         } else {
+            System.out.println("Saving Preview with hidden text..");
             try {
-                if (format.equals("PNG")) {
-                    File output = new File("temp_output.png");
-                    output.deleteOnExit();
-                    ImageIO.write(image, "png", output);
-                }
+                file = new File(System.getProperty("user.dir"), "temp_output.png");
+                file.deleteOnExit();
+                ImageIO.write(image, "png", file);
+                return file;
+
             } catch (IOException e) {
                 System.err.println("Error while saving file!");
             }
         }
+        return file;
     }
 }
