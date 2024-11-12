@@ -28,3 +28,13 @@
     -fx-background-color: #4F4A58;
     -fx-background-radius: 0;
 }
+
+.textareaPath {
+    -fx-background-color: #2D2A32;
+    -fx-text-fill: #eae151;
+}
+
+.textareaPath .content {
+    -fx-background-color: #2D2A32;
+    -fx-background-radius: 0;
+}
