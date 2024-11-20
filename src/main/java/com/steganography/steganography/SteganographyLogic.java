@@ -7,9 +7,9 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLOutput;
 
 public class SteganographyLogic {
+    //Input string, returns array of chars in bits
     public String[] inputToBin(String inputText) {
 
         String[] inputBin = new String[inputText.length()];
@@ -25,6 +25,8 @@ public class SteganographyLogic {
         return inputBin;
     }
 
+    //Input image in array of colors. Get LSBits and save them in char array
+    //Note: Char in bit 00000100 means end of hidden message
     public char[] imageToText(String[][] imageColorsBin) {
         String[] output = new String[imageColorsBin.length*3];
         for (int i = 0; i < imageColorsBin.length; i++) {
@@ -54,10 +56,10 @@ public class SteganographyLogic {
                 }
             }
         }
-
         return textInFileArrayChar;
     }
 
+    //Input image and return char of colors in image
     public String[][] getColorsFromImageInBin(BufferedImage image){
         int width = image.getWidth();
         int height = image.getHeight();
@@ -79,13 +81,10 @@ public class SteganographyLogic {
             }
         }
 
-        for (int i = 0; i < imageColorsBin.length; i++) {
-//            System.out.println("Pixel " + i + " - Red: " + imageColorsBin[i][0] + ", Green: " + imageColorsBin[i][1] + ", Blue: " + imageColorsBin[i][2]);
-        }
-
         return imageColorsBin;
     }
 
+    //Returns image with hidden message
     public String[][] writeTextIntoImageBin(String[][] imageColorsBin, String[] inputText, int maxChar) {
         String[] inputTextArray;
 
@@ -100,15 +99,15 @@ public class SteganographyLogic {
         int textArrayIndex = 0;
         int bitPosition = 0;
 
-        for (int pixelIndex = 0; pixelIndex < imageColorsBin.length && textArrayIndex < inputTextArray.length; pixelIndex++) {
+        for (int pixelPosition = 0; pixelPosition < imageColorsBin.length && textArrayIndex < inputTextArray.length; pixelPosition++) {
             for (int colorIndex = 0; colorIndex < 3 && textArrayIndex < inputTextArray.length; colorIndex++) {
-                String currentColor = imageColorsBin[pixelIndex][colorIndex];
+                String currentColor = imageColorsBin[pixelPosition][colorIndex];
 
                 char textBit = inputTextArray[textArrayIndex].charAt(bitPosition);
 
                 String newColor = currentColor.substring(0, 7) + textBit;
 
-                imageColorsBin[pixelIndex][colorIndex] = newColor;
+                imageColorsBin[pixelPosition][colorIndex] = newColor;
 
                 bitPosition++;
 
@@ -124,6 +123,7 @@ public class SteganographyLogic {
 
     private Stage stage;
 
+    //Format imageColorsBin into file, save and return File
     public File saveImage(String[][] imageColorsBin, int width, int height, String format, String fileName, boolean preview){
 
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -143,8 +143,6 @@ public class SteganographyLogic {
         File file = null;
 
         if (!preview) {
-            //TODO Figure out if merge with Controller.java is possible..
-            System.out.println("Saving image with hidden text..");
             FileChooser fileChooser = new FileChooser();
 
             FileChooser.ExtensionFilter pngFilter = new FileChooser.ExtensionFilter(".png", "*.png");
@@ -152,10 +150,7 @@ public class SteganographyLogic {
             fileChooser.getExtensionFilters().addAll(pngFilter, bmpFilter);
 
             fileChooser.setTitle("Save Image");
-
             fileChooser.setInitialFileName(fileName);
-
-            //TODO Add Try/Catch
             file = fileChooser.showSaveDialog(stage);
 
             try {
@@ -165,7 +160,6 @@ public class SteganographyLogic {
                 System.err.println("Error while saving file..");
             }
         } else {
-            System.out.println("Saving Preview with hidden text..");
             try {
                 file = new File(System.getProperty("user.dir"), "temp_output.png");
                 file.deleteOnExit();

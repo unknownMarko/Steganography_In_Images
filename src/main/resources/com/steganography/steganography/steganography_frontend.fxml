@@ -88,7 +88,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Text fill="#eae151" layoutX="275.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hide Text Into Image">
+      <Text fill="#eae151" layoutX="273.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hide Text Into Image">
          <font>
             <Font name="Roboto Mono Regular" size="16.0" />
          </font>
@@ -98,7 +98,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Text fill="#eae151" layoutX="312.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Input Text">
+      <Text fill="#eae151" layoutX="314.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Input Text">
          <font>
             <Font name="Roboto Mono Regular" size="19.0" />
          </font>
@@ -118,7 +118,7 @@
             <Font name="Roboto Mono Regular" size="13.0" />
          </font>
       </TextArea>
-      <Text fill="#545452" layoutX="73.0" layoutY="486.0" strokeType="OUTSIDE" strokeWidth="0.0" text="https://github.com/unknownMarko">
+      <Text fill="#545452" layoutX="181.0" layoutY="486.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marko Adámek">
          <font>
             <Font name="Roboto Mono Regular" size="19.0" />
          </font>
