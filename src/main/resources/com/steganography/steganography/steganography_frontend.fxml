@@ -118,7 +118,7 @@
             <Font name="Roboto Mono Regular" size="13.0" />
          </font>
       </TextArea>
-      <Text fill="#545452" layoutX="181.0" layoutY="486.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marko Adámek">
+      <Text fill="#545452" layoutX="113.0" layoutY="485.0" strokeType="OUTSIDE" strokeWidth="0.0" text="github.com/unknownMarko/">
          <font>
             <Font name="Roboto Mono Regular" size="19.0" />
          </font>
