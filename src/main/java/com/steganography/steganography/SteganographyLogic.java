@@ -161,6 +161,7 @@ public class SteganographyLogic {
             }
         } else {
             try {
+                System.out.println(System.getProperty("user.dir"));
                 file = new File(System.getProperty("user.dir"), "temp_output.png");
                 file.deleteOnExit();
                 ImageIO.write(image, "png", file);
